@@ -1,20 +1,20 @@
 import { NextResponse } from "next/server"
+import { join } from "path"
+import { readFile } from "fs/promises"
 
-// This is a placeholder route to simulate a resume download
-// In a real application, you would serve an actual PDF file
-/*
 export async function GET() {
-  // Redirect to a placeholder PDF or generate one on the fly
-  // For now, we'll just return a text response explaining this is a placeholder
+  try {
+    const filePath = join(process.cwd(), "public", "ForgetNukeriCV.pdf")
+    const fileBuffer = await readFile(filePath)
 
-  return new NextResponse(
-    "This is a placeholder for your resume PDF. In a production environment, you would serve an actual PDF file here.",
-    {
+    return new NextResponse(fileBuffer, {
       status: 200,
       headers: {
-        "Content-Type": "text/plain",
+        "Content-Type": "application/pdf",
         "Content-Disposition": 'attachment; filename="Forget_Cybersecurity_Resume.pdf"',
       },
-    },
-  )
-}*/
+    })
+  } catch (error) {
+    return new NextResponse("Resume file not found.", { status: 404 })
+  }
+}
