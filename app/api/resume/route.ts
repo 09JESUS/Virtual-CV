@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-
+/*
 export async function GET() {
   try {
     // Import jsPDF with proper typing
@@ -210,4 +210,4 @@ export async function GET() {
       },
     )
   }
-}
+}*/
