@@ -99,11 +99,13 @@ export default async function Home() {
           </Link>
         </nav>
         <div className="hidden md:block">
-         <a href="\ForgetNukeriCV.pdf" download>
+         <a href="/ForgetNukeriCV.pdf" download>
   <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
     📄 Download Resume
   </button>
-</a>>
+</a>
+
+
 
 
 
