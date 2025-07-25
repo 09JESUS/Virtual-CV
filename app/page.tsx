@@ -99,7 +99,7 @@ export default async function Home() {
           </Link>
         </nav>
         <div className="hidden md:block">
-          <a href="/ForgetNukeriCV.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/public/ForgetNukeriCV.pdf" target="_blank" rel="noopener noreferrer">
   <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
     📄 View Resume
   </button>
