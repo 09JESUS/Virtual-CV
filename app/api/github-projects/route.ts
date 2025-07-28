@@ -20,35 +20,30 @@ export async function GET() {
   try {
     const response = await fetch("https://api.github.com/users/09JESUS/repos", {
       headers: {
-        Accept: "application/vnd.github.mercy-preview+json", // Needed to get topics
+        Accept: "application/vnd.github.mercy-preview+json", // Needed for topics
       },
-    });
+      next: {
+        revalidate: 60, // Cache for 60 seconds to allow GitHub updates to reflect soon
+      },
+    })
 
     if (!response.ok) {
-      return new Response(JSON.stringify({ error: "Failed to fetch repositories" }), {
-        status: 500,
-      });
+      return NextResponse.json({ error: "Failed to fetch repositories" }, { status: 500 })
     }
 
-    const data: GitHubRepo[] = await response.json();
+    const data: GitHubRepo[] = await response.json()
 
     const projects: PortfolioProject[] = data
-      .filter(repo => !repo.fork) // Optional: exclude forks
+      .filter(repo => !repo.fork)
       .map(repo => ({
         title: repo.name,
         description: repo.description || "No description provided.",
-        tags: repo.topics ?? (repo.language ? [repo.language] : []),
+        tags: repo.topics?.length ? repo.topics : repo.language ? [repo.language] : [],
         link: repo.html_url,
-      }));
+      }))
 
-    return new Response(JSON.stringify(projects), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    return NextResponse.json(projects)
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Something went wrong" }), {
-      status: 500,
-    });
+    return NextResponse.json({ error: "Something went wrong" }, { status: 500 })
   }
 }
