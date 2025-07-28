@@ -15,6 +15,7 @@ import {
 import { motion } from "framer-motion"
 import Link from "next/link"
 import type { ReactNode } from "react"
+import { useState } from "react"
 
 interface ProjectCardProps {
   title?: string
@@ -36,6 +37,8 @@ export function ProjectCard({
   icon
 }: ProjectCardProps) {
   const fallbackTitle = title || name || "Untitled Project"
+  const [imageError, setImageError] = useState(false)
+
   let projectIcon = icon
   let bgClass = "bg-gradient-to-br from-gray-900/20 to-gray-800/20"
 
@@ -72,13 +75,17 @@ export function ProjectCard({
     >
       <Link href={link} target="_blank" rel="noopener noreferrer">
         <Card className="bg-black border border-gray-800 overflow-hidden group hover:border-green-500 transition-all duration-300 cursor-pointer h-full">
-          <div className={`relative h-48 w-full overflow-hidden flex items-center justify-center ${bgClass}`}>
-            {image ? (
+          <div
+            className={`relative h-48 w-full overflow-hidden flex items-center justify-center ${!image || imageError ? bgClass : ""
+              }`}
+          >
+            {image && !imageError ? (
               <>
                 <Image
                   src={image}
                   alt={fallbackTitle}
                   fill
+                  onError={() => setImageError(true)}
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
@@ -86,23 +93,32 @@ export function ProjectCard({
             ) : (
               <div className="relative z-10">{projectIcon}</div>
             )}
+
             <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
               <ArrowUpRight className="h-4 w-4 text-green-500" />
             </div>
           </div>
+
           <CardContent className="p-6 relative">
             <h3 className="text-xl font-bold mb-2 group-hover:text-green-500 transition-colors flex items-center justify-between">
               <motion.span whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 {fallbackTitle}
               </motion.span>
             </h3>
+
             <p className="text-gray-400 mb-4">{description}</p>
+
             <div className="flex flex-wrap gap-2">
-              {Array.isArray(tags) && tags.map((tag, index) => (
-                <Badge key={index} variant="outline" className="border-green-500 text-green-500">
-                  {tag}
-                </Badge>
-              ))}
+              {Array.isArray(tags) &&
+                tags.map((tag, index) => (
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="border-green-500 text-green-500"
+                  >
+                    {tag}
+                  </Badge>
+                ))}
             </div>
           </CardContent>
         </Card>
