@@ -14,16 +14,17 @@ interface PortfolioProject {
   description: string
   tags: string[]
   link: string
+  image: string
 }
 
 export async function GET() {
   try {
     const response = await fetch("https://api.github.com/users/09JESUS/repos", {
       headers: {
-        Accept: "application/vnd.github.mercy-preview+json", // Needed for topics
+        Accept: "application/vnd.github.mercy-preview+json",
       },
       next: {
-        revalidate: 60, // Cache for 60 seconds to allow GitHub updates to reflect soon
+        revalidate: 60,
       },
     })
 
@@ -35,12 +36,17 @@ export async function GET() {
 
     const projects: PortfolioProject[] = data
       .filter(repo => !repo.fork)
-      .map(repo => ({
-        title: repo.name,
-        description: repo.description || "No description provided.",
-        tags: repo.topics?.length ? repo.topics : repo.language ? [repo.language] : [],
-        link: repo.html_url,
-      }))
+      .map(repo => {
+        const imageUrl = `https://raw.githubusercontent.com/09JESUS/${repo.name}/main/Cover.jpeg`
+
+        return {
+          title: repo.name,
+          description: repo.description || "No description provided.",
+          tags: repo.topics?.length ? repo.topics : repo.language ? [repo.language] : [],
+          link: repo.html_url,
+          image: imageUrl,
+        }
+      })
 
     return NextResponse.json(projects)
   } catch (error) {
