@@ -230,7 +230,7 @@ export default async function Home() {
             </div>
 
           
-
+      </section>
       <section id="skills" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 border-l-4 border-green-500 pl-4">Technical Skills</h2>
