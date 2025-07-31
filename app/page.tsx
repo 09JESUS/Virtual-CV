@@ -167,8 +167,8 @@ export default async function Home() {
             <div className="mt-6">
               <h4 className="text-lg font-semibold text-gray-300 mb-2">Final Year Project:</h4>
               <p className="text-gray-300">
-                <span className="font-bold text-green-500">Integrated Cyber-Software Solutions Initiative</span> –
-                Focused on delivering secure system solutions that work for both cybersecurity and software development.
+                <span className="font-bold text-green-500">NWU Sports League Manager</span> –
+                Currently developing a web-based system for managing NWU sports leagues, teams, fixtures, and match scores.
               </p>
             </div>
           </div>
@@ -204,7 +204,7 @@ export default async function Home() {
             <div className="bg-black border border-gray-800 rounded-lg p-6 hover:border-green-500 transition-colors">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-green-500">Student Assistant - IT Support</h3>
+                  <h3 className="text-xl font-bold text-green-500">Student Assistant - OOP(Java)</h3>
                   <p className="text-gray-400">North-West University | Vanderbijlpark, Gauteng</p>
                 </div>
                 <div className="text-gray-500 text-sm mt-2 md:mt-0">Serving 150+ Students</div>
@@ -212,19 +212,19 @@ export default async function Home() {
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-1">•</span>
-                  Supported 150+ students with basic IT issues and troubleshooting
+                  Supported 150+ students with Java OOP assignments, debugging, and project guidance
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-1">•</span>
-                  Assisted with software updates, hardware upgrades, and system setups
+                  Explained OOP concepts such as classes, inheritance, polymorphism, and encapsulation in a simplified manner.
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-1">•</span>
-                  Configured workstations and ensured network connectivity
+                  Helped students understand and implement object-oriented design principles in real-world scenarios
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-green-500 mt-1">•</span>
-                  Provided clear technical support to non-technical users
+                  Helped students understand and implement object-oriented designprinciples in real-world scenarios
                 </li>
               </ul>
             </div>
