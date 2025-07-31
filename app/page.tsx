@@ -229,36 +229,7 @@ export default async function Home() {
               </ul>
             </div>
 
-            {/* Residential Coordinator Experience */}
-            <div className="bg-black border border-gray-800 rounded-lg p-6 hover:border-green-500 transition-colors">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-green-500">Residential Coordinator</h3>
-                  <p className="text-gray-400">Vaal Student Housing (VSH) | Vanderbijlpark, Gauteng</p>
-                </div>
-                <div className="text-gray-500 text-sm mt-2 md:mt-0">Serving 160 Students</div>
-              </div>
-              <ul className="space-y-2 text-gray-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">•</span>
-                  Resolved technical issues reported by students in a timely manner.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">•</span>
-                  Served as the primary point of contact for 160 students in the residence, addressing their concerns,
-                  questions, and needs.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">•</span>
-                  Managed the day-to-day operations of the residence hall, including room assignments, check-ins, and
-                  check-outs.
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-green-500 mt-1">•</span>
-                  Enforced residence hall policies and procedures.
-                </li>
-              </ul>
-            </div>
+            
           </div>
         </div>
       </section>
