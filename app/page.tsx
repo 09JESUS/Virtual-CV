@@ -170,6 +170,10 @@ export default async function Home() {
                 <span className="font-bold text-green-500">NWU Sports League Manager</span> –
                 Currently developing a web-based system for managing NWU sports leagues, teams, fixtures, and match scores.
               </p>
+              <p className="text-gray-300">
+                <span className="font-bold text-green-500">FSolution Investment-App</span> –
+                💼 Currently building FSolution – Your Gateway to Smarter Investments & Insurance!
+              </p>
             </div>
           </div>
           {/* Achievements */}
