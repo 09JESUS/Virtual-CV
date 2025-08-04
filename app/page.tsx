@@ -166,14 +166,21 @@ export default async function Home() {
             </ul>
             <div className="mt-6">
               <h4 className="text-lg font-semibold text-gray-300 mb-2">Final Year Project:</h4>
-              <p className="text-gray-300">
-                <span className="font-bold text-green-500">NWU Sports League Manager</span> –
-                Currently developing a web-based system for managing NWU sports leagues, teams, fixtures, and match scores.
-              </p>
-              <p className="text-gray-300">
-                <span className="font-bold text-green-500">FSolution Investment-App</span> –
-                💼 Currently building FSolution – Your Gateway to Smarter Investments & Insurance!
-              </p>
+<p className="text-gray-300">
+  <span className="font-bold text-green-500">NWU Sports League Manager</span> –  
+  Currently developing a web-based system for managing NWU sports leagues, teams, fixtures, and match scores.
+</p>
+
+<h4 className="text-lg font-semibold text-gray-300 mb-2">Side Project (Ongoing):</h4>
+<p className="text-gray-300">
+  <span className="font-bold text-green-500">FSolution Investment-App</span> –  
+  A comprehensive digital platform designed to simplify personal wealth management by integrating both <strong>investment</strong> and <strong>insurance</strong> services. FSolution offers features such as portfolio tracking, robo-advisory, advisor booking, chatbot assistance, and an open-door client policy.  
+  <br />
+  <strong>Tech Stack:</strong> React.js, Flask, PostgreSQL, Bootstrap, HTML5 & CSS.  
+  <br />
+  💼 Empowering users to make informed financial decisions through an intuitive, secure, and unified platform.
+</p>
+
             </div>
           </div>
           {/* Achievements */}
