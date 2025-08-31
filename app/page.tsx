@@ -29,6 +29,7 @@ import { MobileMenu } from "@/components/mobile-menu"
 import { PortfolioChatbot } from "@/components/portfolio-chatbot"
 import { InteractiveTerminal } from "@/components/interactive-terminal"
 import { headers } from 'next/headers';
+import { Key } from "react";
 // Define a type for the fetched project data
 interface FetchedProject {
   title: string
@@ -166,21 +167,10 @@ export default async function Home() {
             </ul>
             <div className="mt-6">
               <h4 className="text-lg font-semibold text-gray-300 mb-2">Final Year Project:</h4>
-<p className="text-gray-300">
-  <span className="font-bold text-green-500">NWU Sports League Manager</span> –  
-  Currently developing a web-based system for managing NWU sports leagues, teams, fixtures, and match scores.
-</p>
-
-<h4 className="text-lg font-semibold text-gray-300 mb-2">Side Project (Ongoing):</h4>
-<p className="text-gray-300">
-  <span className="font-bold text-green-500">FSolution Investment-App</span> –  
-  A comprehensive digital platform designed to simplify personal wealth management by integrating both <strong>investment</strong> and <strong>insurance</strong> services. FSolution offers features such as portfolio tracking, robo-advisory, advisor booking, chatbot assistance, and an open-door client policy.  
-  <br />
-  <strong>Tech Stack:</strong> React.js, Flask, PostgreSQL, Bootstrap, HTML5 & CSS.  
-  <br />
-  💼 Empowering users to make informed financial decisions through an intuitive, secure, and unified platform.
-</p>
-
+              <p className="text-gray-300">
+                <span className="font-bold text-green-500">NWU Sports League Manager</span> –
+                Currently developing a web-based system for managing NWU sports leagues, teams, fixtures, and match scores.
+              </p>
             </div>
           </div>
           {/* Achievements */}
@@ -352,14 +342,14 @@ export default async function Home() {
         <h2 className="text-3xl font-bold mb-12 border-l-4 border-green-500 pl-4">Featured Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {githubProjects.length > 0 ? (
-            githubProjects.map((project) => (
+            githubProjects.map((project: { link: Key | null | undefined; title: string | undefined; description: string; tags: string[]; }) => (
               <ProjectCard
-  key={project.link}
+  key={String(project.link)}
   title={project.title}
   description={project.description}
   tags={project.tags}
   image={`/images/${project.title}.jpeg`} // or project.name if you have that
-  link={project.link}
+  link={project.link ? String(project.link) : undefined}
 />
 
             ))
@@ -451,6 +441,36 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      
+<section className="py-12 bg-gray-900 text-white">
+  <h2 className="text-3xl font-bold text-center mb-8">⚡ GitHub Stats ⚡</h2>
+
+  <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-6 px-4">
+
+    {/* GitHub Streak Stats */}
+    <img 
+      src="https://streak-stats.demolab.com?user=09JESUS&theme=react&border_radius=10" 
+      alt="GitHub Streak Stats"
+      className="w-full max-w-sm rounded-xl shadow-lg"
+    />
+
+    {/* GitHub General Stats */}
+    <img 
+      src="https://github-readme-stats.vercel.app/api?username=09JESUS&count_private=true&show_icons=true&theme=react&rank_icon=github&border_radius=10" 
+      alt="GitHub Stats"
+      className="w-full max-w-sm rounded-xl shadow-lg"
+    />
+
+    {/* Top Languages */}
+    <img 
+      src="https://github-readme-stats.vercel.app/api/top-langs?username=09JESUS&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=10&size_weight=0.5&count_weight=0.5&exclude_repo=github-readme-stats" 
+      alt="Top Languages"
+      className="w-full max-w-xs mt-6 md:mt-0 rounded-xl shadow-lg"
+    />
+  </div>
+</section>
+
+
 
       <footer className="bg-black border-t border-gray-800 py-8">
         <div className="container mx-auto px-4 text-center text-gray-400">
