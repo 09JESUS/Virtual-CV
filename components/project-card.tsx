@@ -23,7 +23,8 @@ interface ProjectCardProps {
   description: string
   tags: string[]
   image?: string
-  link?: string
+  link?: string         // GitHub link
+  website?: string      // Live demo link
   icon?: ReactNode
 }
 
@@ -34,6 +35,7 @@ export function ProjectCard({
   tags,
   image,
   link = "#",
+  website,
   icon
 }: ProjectCardProps) {
   const fallbackTitle = title || name || "Untitled Project"
@@ -73,56 +75,77 @@ export function ProjectCard({
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <Link href={link} target="_blank" rel="noopener noreferrer">
-        <Card className="bg-black border border-gray-800 overflow-hidden group hover:border-green-500 transition-all duration-300 cursor-pointer h-full">
-          <div
-            className={`relative h-48 w-full overflow-hidden flex items-center justify-center ${!image || imageError ? bgClass : ""
-              }`}
-          >
-            {image && !imageError ? (
-              <>
-                <Image
-                  src={image}
-                  alt={fallbackTitle}
-                  fill
-                  onError={() => setImageError(true)}
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-              </>
-            ) : (
-              <div className="relative z-10">{projectIcon}</div>
-            )}
+      <Card className="bg-black border border-gray-800 overflow-hidden group hover:border-green-500 transition-all duration-300 cursor-pointer h-full">
+        <div
+          className={`relative h-48 w-full overflow-hidden flex items-center justify-center ${!image || imageError ? bgClass : ""}`}
+        >
+          {image && !imageError ? (
+            <>
+              <Image
+                src={image}
+                alt={fallbackTitle}
+                fill
+                onError={() => setImageError(true)}
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+            </>
+          ) : (
+            <div className="relative z-10">{projectIcon}</div>
+          )}
 
-            <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
-              <ArrowUpRight className="h-4 w-4 text-green-500" />
-            </div>
+          <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+            <ArrowUpRight className="h-4 w-4 text-green-500" />
+          </div>
+        </div>
+
+        <CardContent className="p-6 relative">
+          <h3 className="text-xl font-bold mb-2 group-hover:text-green-500 transition-colors flex items-center justify-between">
+            <motion.span whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+              {fallbackTitle}
+            </motion.span>
+          </h3>
+
+          <p className="text-gray-400 mb-4">{description}</p>
+
+          <div className="flex flex-wrap gap-2 mb-4">
+            {Array.isArray(tags) &&
+              tags.map((tag, index) => (
+                <Badge
+                  key={index}
+                  variant="outline"
+                  className="border-green-500 text-green-500"
+                >
+                  {tag}
+                </Badge>
+              ))}
           </div>
 
-          <CardContent className="p-6 relative">
-            <h3 className="text-xl font-bold mb-2 group-hover:text-green-500 transition-colors flex items-center justify-between">
-              <motion.span whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                {fallbackTitle}
-              </motion.span>
-            </h3>
-
-            <p className="text-gray-400 mb-4">{description}</p>
-
-            <div className="flex flex-wrap gap-2">
-              {Array.isArray(tags) &&
-                tags.map((tag, index) => (
-                  <Badge
-                    key={index}
-                    variant="outline"
-                    className="border-green-500 text-green-500"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-            </div>
-          </CardContent>
-        </Card>
-      </Link>
+          {/* Links */}
+          <div className="flex gap-3 mt-2">
+            {website && (
+              <Link
+                href={website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded"
+              >
+                🔗 Live Demo
+              </Link>
+            )}
+            {link && (
+              <Link
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-700 hover:bg-gray-800 text-white px-3 py-1 rounded"
+              >
+                💻 GitHub
+              </Link>
+            )}
+          </div>
+        </CardContent>
+      </Card>
     </motion.div>
   )
 }
