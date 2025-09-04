@@ -339,27 +339,38 @@ export default async function Home() {
       </section>
 
       <section id="projects" className="container mx-auto py-20 px-4">
-        <h2 className="text-3xl font-bold mb-12 border-l-4 border-green-500 pl-4">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {githubProjects.length > 0 ? (
-            githubProjects.map((project: { link: Key | null | undefined; title: string | undefined; description: string; tags: string[]; }) => (
-              <ProjectCard
-  key={String(project.link)}
-  title={project.title}
-  description={project.description}
-  tags={project.tags}
-  image={`/images/${project.title}.jpeg`} // or project.name if you have that
-  link={project.link ? String(project.link) : undefined}
-/>
+  <h2 className="text-3xl font-bold mb-12 border-l-4 border-green-500 pl-4">
+    Featured Projects
+  </h2>
 
-            ))
-          ) : (
-            <p className="text-gray-400 col-span-full text-center">
-              Failed to load projects from GitHub. Please check your internet connection or try again later.
-            </p>
-          )}
-        </div>
-      </section>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {githubProjects.length > 0 ? (
+      githubProjects.map((project: {
+        title: string
+        description: string
+        tags: string[]
+        link: string
+        website?: string | null
+        image?: string
+      }) => (
+        <ProjectCard
+          key={project.link}
+          title={project.title}
+          description={project.description}
+          tags={project.tags}
+          image={`/images/${project.title}.jpeg`}
+          link={project.link}       // GitHub link
+          website={project.website} // Live website/demo if exists
+        />
+      ))
+    ) : (
+      <p className="text-gray-400 col-span-full text-center">
+        Failed to load projects from GitHub. Please check your internet connection or try again later.
+      </p>
+    )}
+  </div>
+</section>
+
 
       <section id="contact" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
