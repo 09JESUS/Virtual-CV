@@ -8,6 +8,24 @@
     "lint": "next lint",
     "start": "next start"
   },
+  const COMMON_FRAMEWORKS = [
+  "react",
+  "next",
+  "vue",
+  "angular",
+  "svelte",
+  "tailwindcss",
+  "node",
+  "express",
+  "django",
+  "flask",
+  "ruby-on-rails",
+  "typescript",
+  "javascript",
+  "python",
+  "java",
+},
+
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^3.9.1",
