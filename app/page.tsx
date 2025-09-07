@@ -310,26 +310,19 @@ export default async function Home() {
 
           <h3 className="text-2xl font-bold mb-8 mt-12 border-l-4 border-purple-500 pl-4">Certifications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-500 transition-colors">
-              <h4 className="text-lg font-semibold text-purple-500 mb-2">
+            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-green-500 transition-colors">
+              <h4 className="text-lg font-semibold text-green-500">
                 Google Cybersecurity Professional Certificate
               </h4>
               <p className="text-gray-400 text-sm">Administered by Coursera</p>
             </div>
-            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-purple-500 transition-colors">
-              <h4 className="text-lg font-semibold text-purple-500 mb-2">Google Technical Support Fundamentals</h4>
+            <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-green-500 transition-colors">
+              <h4 className="text-lg font-semibold text-green-500">Google Technical Support Fundamentals</h4>
               <p className="text-gray-400 text-sm">Professional Certificate</p>
             </div>
           </div>
 
-          <h3 className="text-2xl font-bold mb-8 mt-12 border-l-4 border-yellow-500 pl-4">Languages</h3>
-          <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-yellow-500 transition-colors">
-            <div className="flex flex-wrap gap-4">
-              <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-medium">English</span>
-              <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-medium">isiZulu</span>
-              <span className="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-medium">Xitsonga</span>
-            </div>
-          </div>
+          
         </div>
       </section>
 
