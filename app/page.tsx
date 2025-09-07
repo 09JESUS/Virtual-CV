@@ -336,8 +336,6 @@ export default async function Home() {
               "C-PLUS-PLUS-File-Organizer",
               "Covid-19-Tracker",
               "Student-Attendance-List-NWU-",
-              "To_Do_List_Calendar",
-              "Fake-News-Detection",
               "FSolution-Investment-App",
             ].map((projectName) => {
               const project = githubProjects.find((p) => p.title === projectName)
