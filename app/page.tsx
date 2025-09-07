@@ -342,14 +342,14 @@ export default async function Home() {
               if (!project) return null
               return (
                 <ProjectCard
-                  key={project.link}
-                  title={project.title}
-                  description={project.description}
-                  tags={project.tags}
-                  image={`/images/${project.title}.jpeg`}
-                  link={project.link}
-                  website={project.website}
-                />
+  key={project.link}
+  title={project.title}
+  description={project.description}
+  tags={project.tags}        // ✅ badges show all
+  image={`/images/${project.title}.jpeg`}
+  link={project.link}
+  website={project.website}
+/>
               )
             })
           ) : (
