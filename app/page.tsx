@@ -260,11 +260,6 @@ export default async function Home() {
               description="Workstation configuration, network connectivity setup, and system administration."
             />
             <AnimatedSkillCard
-              icon={<Database className="h-10 w-10 text-green-500" />}
-              title="Microsoft Office Suite"
-              description="Advanced proficiency in Word, Excel, PowerPoint for documentation and presentations."
-            />
-            <AnimatedSkillCard
               icon={<Zap className="h-10 w-10 text-green-500" />}
               title="Technical Communication"
               description="Effectively communicating with end-users and non-technical staff for support solutions."
@@ -343,30 +338,33 @@ export default async function Home() {
     Featured Projects
   </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {githubProjects.length > 0 ? (
-      githubProjects.map((project: {
-        title: string
-        description: string
-        tags: string[]
-        link: string
-        website?: string | null
-        image?: string
-      }) => (
-        <ProjectCard
-          key={project.link}
-          title={project.title}
-          description={project.description}
-          tags={project.tags}
-          image={`/images/${project.title}.jpeg`}
-          link={project.link}       // GitHub link
-          website={project.website} // Live website/demo if exists
-        />
-      ))
-    ) : (
-      <p className="text-gray-400 col-span-full text-center">
-        Failed to load projects from GitHub. Please check your internet connection or try again later.
-      </p>
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {githubProjects.length > 0 ? (
+    githubProjects.slice(0, 5).map((project: {
+      title: string
+      description: string
+      tags: string[]
+      link: string
+      website?: string | null
+      image?: string
+    }) => (
+      <ProjectCard
+        key={project.link}
+        title={project.title}
+        description={project.description}
+        tags={project.tags}
+        image={`/images/${project.title}.jpeg`}
+        link={project.link} // GitHub link
+        website={project.website} // Live website/demo if exists
+      />
+    ))
+  ) : (
+    <p className="text-gray-400 col-span-full text-center">
+      Failed to load projects from GitHub. Please check your internet connection or try again later.
+    </p>
+  )}
+</div>
+
     )}
   </div>
 </section>
